@@ -1,18 +1,41 @@
 # Задание "Раз, два, три, четыре, пять .... Это не всё?"
 
 data_structure = [
-  [1, 2, 3],
-  {'a': 4, 'b': 5},
-  (6, {'cube': 7, 'drum': 8}),
-  "Hello",
-  ((), [{(2, 'Urban', ('Urban2', 35))}])
+    [1, 2, 3],
+    {'a': 4, 'b': 5},
+    (6, {'cube': 7, 'drum': 8}),
+    "Hello",
+    ((), [{(2, 'Urban', ('Urban2', 35))}])
 ]
 
-def calculate_structure_sum(*atrgs):
-    pass
+list_instances = []
+sum = 0
+
+def calculate_structure_sum(params):
+    global sum
+
+    for i in range(len(data_structure)):
+        #print(params[i], type(params[i]))
+
+        if isinstance(params[i], list):
+            print(params[i])
+            for j in range(len(params[i])):
+                #print(type(int(str(params[j]))))
+                sum += int(params[i][j])
+
+        elif isinstance(params[i], dict):
+            print(params[i])
+
+        elif isinstance(params[i], tuple):
+            print(params[i])
+
+        elif isinstance(params[i], str):
+            print(params[i])
+
+    # list_instances.append(args[i])
 
 
-
+#print(params)
 
 # Main
 result = calculate_structure_sum(data_structure)
