@@ -11,32 +11,33 @@ data_structure = [
 list_instances = []
 sum = 0
 
+
 def calculate_structure_sum(params):
     global sum
 
     for i in range(len(data_structure)):
-        #print(params[i], type(params[i]))
+        # print(params[i], type(params[i]))
 
         if isinstance(params[i], list):
-            print(params[i])
+            # print(params[i])
             for j in range(len(params[i])):
-                #print(type(int(str(params[j]))))
                 sum += int(params[i][j])
 
         elif isinstance(params[i], dict):
             print(params[i])
+            for j in range(len(params[i])):
+                pass
 
         elif isinstance(params[i], tuple):
             print(params[i])
 
         elif isinstance(params[i], str):
-            print(params[i])
+            # print(params[i])
+            sum += len(params[i])
 
-    # list_instances.append(args[i])
+    print()
+    return sum
 
-
-#print(params)
 
 # Main
-result = calculate_structure_sum(data_structure)
-print(result)
+print(f"Результат: {calculate_structure_sum(data_structure)}")
