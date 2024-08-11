@@ -5,7 +5,8 @@ str_result = ""
 num = int(input("Введите число в диапазоне 3 - 20 :"))
 if num >= 3 and num <= 20:
     pass
-else: print("Вы ввели неправильное число")
+else:
+    print("Вы ввели неправильное число")
 
 for i in range(num):
     i += 1
@@ -16,6 +17,3 @@ for i in range(num):
                     str_result += str(i) + str(j)
 
 print(str_result)
-
-
-
