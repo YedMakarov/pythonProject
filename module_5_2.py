@@ -17,7 +17,8 @@ class House:
         return self.number_of_floors
 
     def __str__(self):
-        return "Название:" + str(self.name) + ", кол-во этажей:" + str(self.number_of_floors)
+        # return "Название: " + str(self.name) + ", кол-во этажей: " + str(self.number_of_floors)
+        return f"Название: {self.name}, кол-во этажей: {self.number_of_floors}"
 
 
 # Main
