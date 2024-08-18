@@ -20,13 +20,27 @@ class House:
         return f"Название: {self.name}, кол-во этажей: {self.number_of_floors}"
 
     # Сравнение
+    def __eq__(self):
+        pass
 
+    def __lt__(self):
+        pass
 
+    def __le__(self):
+        pass
 
+    def __gt__(self):
+        pass
 
+    def __ge__(self):
+        pass
 
+    def __ne__(self):
+        pass
 
     # Сложение
+    def __add__(self):
+        pass
 
 
 # Main
@@ -45,6 +59,7 @@ print(h1 == h2)
 
 h1 += 10  # __iadd__
 print(h1)
+
 h2 = 10 + h2  # __radd__
 print(h2)
 
