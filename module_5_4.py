@@ -2,15 +2,16 @@
 
 class House:
     houses_history = []
+
     def __new__(cls, *args, **kwargs):
-        #print(*args)
         cls.houses_history.append(args[0])
-        #print(cls.houses_history)
+        # print(cls.houses_history)
         return super().__new__(cls)
+
     def __init__(self, name, number_of_floors):
         self.name = name
         self.number_of_floors = number_of_floors
-        #print(self.houses_history)
+        # print(self.houses_history)
 
     def go_to(self, new_floor):
         if new_floor < 1 or new_floor > self.number_of_floors:
@@ -71,7 +72,7 @@ class House:
 
     def __del__(self):
         print(f"{self.name} снесён, но он останется в истории")
-        #return f"{self} снесён, но он останется в истории"
+        # return f"{self} снесён, но он останется в истории"
 
 
 # Main
