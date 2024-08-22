@@ -10,7 +10,7 @@ class House:
     def __init__(self, name, number_of_floors):
         self.name = name
         self.number_of_floors = number_of_floors
-        print(self.houses_history)
+        #print(self.houses_history)
 
     def go_to(self, new_floor):
         if new_floor < 1 or new_floor > self.number_of_floors:
@@ -76,11 +76,11 @@ class House:
 
 # Main
 h1 = House('ЖК Эльбрус', 10)
-#print(House.houses_history)
+print(House.houses_history)
 h2 = House('ЖК Акация', 20)
-#print(House.houses_history)
+print(House.houses_history)
 h3 = House('ЖК Матрёшки', 20)
-#print(House.houses_history)
+print(House.houses_history)
 
 # Удаление объектов
 del h2
