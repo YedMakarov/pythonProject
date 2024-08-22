@@ -70,8 +70,8 @@ class House:
         return self.__add__(value)
 
     def __del__(self):
-        #print(f"{self} снесён, но он останется в истории")
-        return f"{self} снесён, но он останется в истории"
+        print(f"{self.name} снесён, но он останется в истории")
+        #return f"{self} снесён, но он останется в истории"
 
 
 # Main
@@ -86,4 +86,4 @@ print(House.houses_history)
 del h2
 del h3
 
-#print(House.houses_history)
+print(House.houses_history)
