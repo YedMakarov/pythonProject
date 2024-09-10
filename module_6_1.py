@@ -5,13 +5,10 @@ class Animal:
         self.name = name
         self.alive = True
         self.fed = False
-    # alive = True
-    # fed = False
 
 class Plant:
     def __init__(self, name):
         self.name = name
-        #self.edible = False
     edible = False
 
 class Mammal(Animal):
