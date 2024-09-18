@@ -2,10 +2,11 @@
 
 
 class Figure:
-    def __init__(self, sides, color, filled):
-        self.__sides = sides
+    filled = True
+
+    def __init__(self, color, sides):
         self.__color = color
-        self.filled = filled
+        self.__sides = sides
 
     def get_color(self):
         pass
@@ -28,17 +29,25 @@ class Figure:
     def __len__(self):
         pass
 
-    
 
 class Circle(Figure):
+    sides_count = 1
     pass
+    # def __init__(self):
+    #     super().__init__()
+    #     __radius = self.sides / (2 * pi)
+
+    def get_square(self):
+        pass
 
 
 class Triangle(Figure):
+    sides_count = 3
     pass
 
 
 class Cube(Figure):
+    sides_count = 12
     pass
 
 
