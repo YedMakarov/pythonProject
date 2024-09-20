@@ -54,24 +54,9 @@ class WordsFinder:
 
 
 # Main
+#finder2 = WordsFinder('test_file.txt', 'test_file1.txt', 'test_file2.txt')
 
-# var = "Hello World!"
-# print(var[2:7:2])
-#
-# birth_date = {'Олег': 1995, 'Никита': 1978, 'Алексей': 2002, 'Александр': 1989}
-# print(birth_date['Александр'])
-#
-# my_set = {10, 20, 30}
-# my_set.add(20)
-# print(my_set)
-#
-# son_age = 5
-# my_age = "30"
-# print(son_age * my_age)
-
-finder2 = WordsFinder('test_file.txt', 'test_file1.txt', 'test_file2.txt')
-
-# finder2 = WordsFinder('test_file.txt')
+finder2 = WordsFinder('test_file.txt')
 print(finder2.get_all_words())  # Все слова
 print(finder2.find('TEXT'))  # 3 слово по счёту
 print(finder2.count('teXT'))  # 4 слова teXT в тексте всего
