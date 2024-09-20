@@ -54,7 +54,6 @@ class WordsFinder:
 
 # Main
 #finder2 = WordsFinder('test_file.txt', 'test_file1.txt', 'test_file2.txt')
-
 finder2 = WordsFinder('test_file.txt')
 print(finder2.get_all_words())  # Все слова
 print(finder2.find('TEXT'))  # 3 слово по счёту
