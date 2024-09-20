@@ -14,7 +14,6 @@ class WordsFinder:
             with open(next_file, encoding='utf-8') as file:
                 data = (file.read().replace('\n', ' ')).lower()
 
-                # chars_to_remove = ",.=!?;:-"
                 chars_to_remove = [",", ".", "=", "!", "?", ";", ":"]
                 for symbol in chars_to_remove:
                     data = data.replace(symbol, "")
