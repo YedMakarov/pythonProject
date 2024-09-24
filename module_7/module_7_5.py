@@ -16,7 +16,8 @@ for root, dirs, files in os.walk('./'):
 
     print("Файлфы в родительском катологе:")
     for name in files:
-        filepath = root + "/" + name
+        #filepath = root + "/" + name
+        filepath =os.path.join(root, name)
         filesize = os.path.getsize(filepath)
         filetime = os.path.getmtime(filepath)
         formatted_time = time.strftime("%d.%m.%Y %H:%M", time.localtime(filetime))
@@ -26,3 +27,5 @@ for root, dirs, files in os.walk('./'):
               f'{formatted_time}, Родительская директория: {parent_dir}')
 
     print()
+
+
