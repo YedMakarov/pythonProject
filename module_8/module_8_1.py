@@ -2,7 +2,8 @@
 
 def add_everything_up(a, b):
     try:
-        return a + b
+        result = a + b
+        return result
 
     except TypeError as exc:
         print(f'Встретились параметры разных типов - "{exc}", приводим их к типу "str".')
