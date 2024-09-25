@@ -4,7 +4,8 @@ def add_everything_up(a, b):
     try:
         return a + b
 
-    except TypeError as exec:
+    except TypeError as exc:
+        print(f'Встретились параметры разных типов - "{exc}", приводим их к типу "str".')
         return str(a) + str(b)
 
 
