@@ -16,16 +16,19 @@ def personal_sum(numbers):
 
 
 def calculate_average(numbers):
-    data = personal_sum(numbers)
+    result = None
+
     try:
+        data = personal_sum(numbers)
         result = data[0] / (len(numbers) - data[1])
 
     except ZeroDivisionError:
-        print('В numbers записан некорректный тип данных ')
         result = 0
 
+    except TypeError:
+        print('В numbers записан некорректный тип данных ')
 
-    return data
+    return result
 
 
 # Main
