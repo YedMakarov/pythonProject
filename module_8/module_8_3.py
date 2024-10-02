@@ -3,8 +3,6 @@
 class Car:
     def __init__(self, model: str, vin: int, numbers: str):
         self.model = model
-        # self.__vin = vin
-        # self.__numbers = numbers
         self.__vin = self.__is_valid_vin(vin)
         self.__numbers = self.__is_valid_numbers(numbers)
 
