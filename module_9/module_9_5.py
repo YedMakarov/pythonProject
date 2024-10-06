@@ -14,7 +14,6 @@ class Iterator:
 
     def __iter__(self):
         # Задать начальное значение указателя
-        # self.pointer = self.start
         self.pointer = self.start
         return self
 
