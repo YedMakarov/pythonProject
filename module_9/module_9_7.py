@@ -1,10 +1,12 @@
 # Задача по теме "Декораторы".
 
 def is_prime(func):
-    # def wrapper(*args):
-    #     result = func(*args)
-    # return wrapper
-    return func
+    def wrapper(*args):
+    #     pass
+        result = func(*args)
+        return result
+    return wrapper
+    # return func
 
 
 @is_prime
