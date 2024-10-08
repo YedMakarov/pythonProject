@@ -2,7 +2,6 @@
 
 def is_prime(func):
     def wrapper(*args):
-    #     pass
         result = func(*args)
         return result
     return wrapper
