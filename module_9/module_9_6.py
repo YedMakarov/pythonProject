@@ -6,14 +6,14 @@
 
 
 # def all_variants(text):
-#     for l in range(len(text)):
-#         for r in range(l,len(text)):
-#             yield text[l:r+1]
+#     for i in range(len(text)):
+#         for j in range(i,len(text)):
+#             yield text[i:j+1]
 
 def all_variants(text):
     for size in range(len(text)):
-        for l in range(len(text)-size):
-            yield text[l:l+size+1]
+        for i in range(len(text)-size):
+            yield text[i:i+size+1]
 
 a = all_variants("abc")
 for i in a:

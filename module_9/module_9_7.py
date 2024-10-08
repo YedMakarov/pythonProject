@@ -6,6 +6,7 @@ def is_prime(func):
     # return wrapper
     return func
 
+
 @is_prime
 def sum_three(*args: int):
     result = 0
