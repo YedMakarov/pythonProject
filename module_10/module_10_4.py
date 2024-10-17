@@ -1,6 +1,10 @@
 # Задача "Потоки гостей в кафе".
 
-from threading import Thread
+import random
+import time
+import threading
+from queue import Queue
+
 
 class Table:
     def __init__(self, number: int):
@@ -8,10 +12,15 @@ class Table:
         self.guest = None
 
 
-class Guest:
-    def __init__(self, *name):
-        pass
+class Guest(threading.Thread):
+    def __init__(self, name):
+        super().__init__()
+        self.name = name
 
+    def run(self):
+        # Гость "ест" от 3 до 10 секунд
+        eating_time = random.randint(3, 10)
+        time.sleep(eating_time)
 
 
 class Cafe:
