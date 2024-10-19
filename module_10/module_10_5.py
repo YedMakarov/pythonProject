@@ -4,10 +4,6 @@ import datetime
 import multiprocessing
 # from multiprocessing import Pool
 
-# filenames = [f'./file {number}.txt' for number in range(1, 5)]
-# filenames_ = [f'./file_{number}.txt' for number in range(1, 5)]
-filenames = [f'./file_{number}.txt' for number in range(1, 5)]
-
 
 def read_info(name):
     all_data = []
@@ -39,6 +35,9 @@ def read_info(name):
 
 # Main
 if __name__ == "__main__":
+    filenames = [f'./file {number}.txt' for number in range(1, 5)]
+    # filenames_ = [f'./file_{number}.txt' for number in range(1, 5)]
+    # filenames = [f'./file_{number}.txt' for number in range(1, 5)]
 
     # Линейный вызов
     start = datetime.datetime.now()
