@@ -2,6 +2,7 @@
 
 import datetime
 import multiprocessing
+
 # from multiprocessing import Pool
 
 filenames = [f'./file {number}.txt' for number in range(1, 5)]
@@ -12,8 +13,6 @@ def read_info(name):
     all_data = []
 
     for next_file in name:
-        # print(next_file)
-        # open(next_file, 'r').close()
 
         # Первый вариант
         current_file = open(next_file, 'r', encoding='utf-8')
@@ -40,18 +39,18 @@ def read_info(name):
 
 # Main
 
-# # Линейный вызов
-# start = datetime.datetime.now()
-# # a = read_info(filenames)
+# Линейный вызов
+start = datetime.datetime.now()
+a = read_info(filenames)
 # a = read_info(filenames_)
-# stop = datetime.datetime.now()
-# print(f"{stop - start} (линейный)")
+stop = datetime.datetime.now()
+print(f"{stop - start} (линейный)")
 
 # Многопроцессный
 if __name__ == "__main__":
     start = datetime.datetime.now()
     # with multiprocessing.Pool() as pool:
     with multiprocessing.Pool(processes=2) as pool:
-        a = pool.map(read_info, filenames_)
+        a = pool.map(read_info, filenames)
     stop = datetime.datetime.now()
     print(f"{stop - start} (многопроцессный)")
