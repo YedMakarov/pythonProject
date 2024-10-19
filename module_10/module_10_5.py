@@ -1,8 +1,8 @@
 # Задача "Многопроцессное считывание".
 
 import datetime
-import multiprocessing
-# from multiprocessing import Pool
+# import multiprocessing
+from multiprocessing import Pool
 
 
 def read_info(name):
@@ -49,7 +49,8 @@ if __name__ == "__main__":
     # Многопроцессный
     start = datetime.datetime.now()
     # with multiprocessing.Pool() as pool:
-    with multiprocessing.Pool(processes=2) as pool:
+    # with multiprocessing.Pool(processes=2) as pool:
+    with Pool(processes=2) as pool:
         a = pool.map(read_info, filenames)
     stop = datetime.datetime.now()
     print(f"{stop - start} (многопроцессный)")
