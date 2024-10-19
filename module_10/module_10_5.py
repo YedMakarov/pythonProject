@@ -15,7 +15,7 @@ def read_info(name):
         # print(next_file)
         # open(next_file, 'r').close()
 
-        # Первый вариент
+        # Первый вариант
         current_file = open(next_file, 'r', encoding='utf-8')
         while True:
             line = current_file.readline()
