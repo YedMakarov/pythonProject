@@ -26,7 +26,7 @@ def linear_read(files):
 def multiprocessing_read(files):
     start_time = datetime.datetime.now()
     with Pool() as pool:
-        # with Pool(processes=4) as pool:
+    # with Pool(processes=4) as pool:
         results = pool.map(read_info, files)
     end_time = datetime.datetime.now()
     print(f"{end_time - start_time} (многопроцессный)")
@@ -43,4 +43,3 @@ if __name__ == "__main__":
 
     # Многопроцессный вызов
     multiprocessing_read(filenames)
-
