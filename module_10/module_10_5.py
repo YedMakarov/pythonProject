@@ -11,7 +11,8 @@ def read_info(name):
             line = file.readline()
             if not line:
                 break
-            all_data.append(line.strip())
+            # all_data.append(line.strip())
+            all_data.append(line)
     return all_data
 
 
