@@ -1,56 +1,46 @@
 # Задача "Многопроцессное считывание".
 
 import datetime
-# import multiprocessing
 from multiprocessing import Pool
 
 
 def read_info(name):
     all_data = []
-
-    for next_file in name:
-
-        # Первый вариант
-        current_file = open(next_file, 'r', encoding='utf-8')
+    with open(name, 'r', encoding='utf-8') as file:
         while True:
-            line = current_file.readline()
+            line = file.readline()
             if not line:
                 break
-            all_data.append(line)
-        # current_file.close
+            all_data.append(line.strip())
+    return all_data
 
-        # Второй вариант
-        # current_file = open(next_file, 'r')
-        # lines = current_file.readlines()
-        # for line in lines:
-        #     all_data.append(line)
-        # current_file.close
 
-        # # Третий вариант
-        # with open(next_file, 'r') as current_file:
-        #     for line in current_file:
-        #         all_data.append(line)
-        # current_file.close
+def linear_read(files):
+    start_time = datetime.datetime.now()
+    for file in files:
+        data = read_info(file)
+    end_time = datetime.datetime.now()
+    print(f"{end_time - start_time:} (линейный)")
+
+
+def multiprocessing_read(files):
+    start_time = datetime.datetime.now()
+    with Pool() as pool:
+        # with Pool(processes=4) as pool:
+        results = pool.map(read_info, files)
+    end_time = datetime.datetime.now()
+    print(f"{end_time - start_time} (многопроцессный)")
+    return results
 
 
 # Main
 if __name__ == "__main__":
+    # Список файлов
     filenames = [f'./file {number}.txt' for number in range(1, 5)]
-    # filenames_ = [f'./file_{number}.txt' for number in range(1, 5)]
-    # filenames = [f'./file_{number}.txt' for number in range(1, 5)]
 
     # Линейный вызов
-    start = datetime.datetime.now()
-    a = read_info(filenames)
-    # a = read_info(filenames_)
-    stop = datetime.datetime.now()
-    print(f"{stop - start} (линейный)")
+    linear_read(filenames)
 
-    # Многопроцессный
-    start = datetime.datetime.now()
-    # with multiprocessing.Pool() as pool:
-    # with multiprocessing.Pool(processes=2) as pool:
-    with Pool(processes=2) as pool:
-        a = pool.map(read_info, filenames)
-    stop = datetime.datetime.now()
-    print(f"{stop - start} (многопроцессный)")
+    # Многопроцессный вызов
+    multiprocessing_read(filenames)
+
