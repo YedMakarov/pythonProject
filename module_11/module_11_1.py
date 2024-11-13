@@ -1,13 +1,9 @@
-
-
 import matplotlib.pyplot as plt
 
 import numpy as np
 from matplotlib import cm
 
 import pandas as pd
-
-
 
 ##################################
 # matplotlib
@@ -32,32 +28,54 @@ plt.xlabel("Значения")
 plt.ylabel("Частота")
 plt.show()
 
-
+# Создание поверхности
 plt.style.use('_mpl-gallery')
 
 # Make data
 X = np.arange(-5, 5, 0.25)
 Y = np.arange(-5, 5, 0.25)
 X, Y = np.meshgrid(X, Y)
-R = np.sqrt(X**2 + Y**2)
+R = np.sqrt(X ** 2 + Y ** 2)
 Z = np.sin(R)
 
 # Plot the surface
 fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
-ax.plot_surface(X, Y, Z, vmin=Z.min() * 2, cmap=cm.Blues)
+# ax.plot_surface(X, Y, Z, vmin=Z.min() * 2, cmap=cm.Blues)
+ax.plot_surface(X, Y, Z, rstride=1, cstride=1, linewidth=0, antialiased=False)
 
 ax.set(xticklabels=[],
        yticklabels=[],
        zticklabels=[])
 
+ax.set_title("Пример поверхностного графика")
+ax.set_xlabel("X-ось")
+ax.set_ylabel("Y-ось")
+ax.set_zlabel("Z-ось")
+# ax.set_zlim(0, 2)
+# ax.set_zlim(-1, 1)
+
+
+#############################
+vals = [24, 17, 53, 21, 35]
+labels = ["Ford", "Toyota", "BMW", "Audi", "Jaguar"]
+
+# plt.pie(vals, labels=labels)
+plt.figure(figsize=(6, 6))
+plt.pie(vals, labels=labels, autopct='%1.1f%%',
+        colors=[
+            # matplotlib named colors
+            'tomato', 'cornflowerblue', 'gold', 'orchid', 'green',
+        ]
+        )
+plt.title("Распределение марок автомобилей на дороге", fontdict={"fontsize": 14})
 plt.show()
-
-
-
 
 ##################################
 # numpy
 ##################################
+print(f"\nВывод для работы с модулем - Numpy\n\
+---------------------------------\n")
+
 # Создание массива
 array = np.array([1, 2, 3, 4, 5])
 
@@ -73,12 +91,12 @@ matrix = np.array([[1, 2], [3, 4]])
 transposed_matrix = np.transpose(matrix)
 print(transposed_matrix)
 
-
-
-
 ##################################
 # pandas
 ##################################
+print(f"\nВывод для работы с модулем - Pandas\n\
+-----------------------------------\n")
+
 # # Чтение данных из CSV файла
 # data = pd.read_csv('data.csv')
 #
