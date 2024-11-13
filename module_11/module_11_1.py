@@ -97,21 +97,6 @@ print(transposed_matrix)
 print(f"\nВывод для работы с модулем - Pandas\n\
 -----------------------------------\n")
 
-# # Чтение данных из CSV файла
-# data = pd.read_csv('data.csv')
-#
-# # Вывод первых 5 строк
-# print(data.head())
-#
-# # Группировка данных по столбцу и вычисление средней зарплаты
-# average_salary = data.groupby('Age')['Salary'].mean()
-# print(average_salary)
-#
-# # Фильтрация данных: сотрудники с зарплатой выше 70000
-# high_salary_employees = data[data['Salary'] > 70000]
-# print(high_salary_employees)
-
-
 # Чтение данных из CSV файла
 data = pd.read_csv('data.csv')
 
