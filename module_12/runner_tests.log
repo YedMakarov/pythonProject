@@ -1,12 +1,12 @@
-2024-11-17 00:32:09,001 | WARNING | Неверный тип данных для объекта Runner
+2024-11-17 01:06:11,833 | WARNING | Неверный тип данных для объекта Runner
 Traceback (most recent call last):
-  File "C:\Users\Yed\PycharmProjects\pythonProject\module_12\tests_12_4.py", line 31, in test_run
+  File "C:\Users\Yed\PycharmProjects\pythonProject\module_12\tests_12_4.py", line 30, in test_run
     tr1 = rtwe.Runner(7, 10)
           ^^^^^^^^^^^^^^^^^^
   File "C:\Users\Yed\PycharmProjects\pythonProject\module_12\rt_with_exceptions.py", line 6, in __init__
     raise TypeError(f'Имя может быть только строкой, передано {type(name).__name__}')
 TypeError: Имя может быть только строкой, передано int
-2024-11-17 00:32:09,005 | WARNING | Неверная скорость для Runner
+2024-11-17 01:06:11,836 | WARNING | Неверная скорость для Runner
 Traceback (most recent call last):
   File "C:\Users\Yed\PycharmProjects\pythonProject\module_12\tests_12_4.py", line 17, in test_walk
     tw1 = rtwe.Runner('runner_walk', -10)
