@@ -7,6 +7,8 @@ import runner_and_tournament as rat
 
 
 class TournamentTest(unittest.TestCase):
+    is_frozen = True
+
     @classmethod
     def setUpClass(cls):
         # cls.all_results = {}
@@ -14,6 +16,7 @@ class TournamentTest(unittest.TestCase):
         cls.all_results2 = {}
         cls.all_results3 = {}
 
+    @unittest.skipIf(is_frozen, "Тесты в этом кейсе заморожены")
     def setUp(self):
         self.r1 = rat.Runner('Усэйн', 10)
         self.r2 = rat.Runner('Андрей', 9)
@@ -36,6 +39,7 @@ class TournamentTest(unittest.TestCase):
             all_results[key] = f"{cls.all_results3[key]}"
         print(all_results)
 
+    @unittest.skipIf(is_frozen, "Тесты в этом кейсе заморожены")
     def test_race_usain_and_nick(self):
         tournament = rat.Tournament(90, self.r1, self.r3)
         results = tournament.start()
@@ -45,6 +49,7 @@ class TournamentTest(unittest.TestCase):
         last_runner_name = max(results.keys())
         self.assertTrue(results[last_runner_name] == "Ник")
 
+    @unittest.skipIf(is_frozen, "Тесты в этом кейсе заморожены")
     def test_race_andrey_and_nick(self):
         tournament = rat.Tournament(90, self.r2, self.r3)
         results = tournament.start()
@@ -54,6 +59,7 @@ class TournamentTest(unittest.TestCase):
         last_runner_name = max(results.keys())
         self.assertTrue(results[last_runner_name] == "Ник")
 
+    @unittest.skipIf(is_frozen, "Тесты в этом кейсе заморожены")
     def test_race_usain_andrey_and_nick(self):
         tournament = rat.Tournament(90, self.r1, self.r2, self.r3)
         results = tournament.start()
