@@ -24,8 +24,7 @@ kb.add(bt2)
 kbi = InlineKeyboardMarkup(resize_keyboard=True)
 bti1 = InlineKeyboardButton(text="Рассчитать норму калорий", callback_data="calories")
 bti2 = InlineKeyboardButton(text="Формулы расчёта", callback_data="formulas")
-kbi.row(bti1)
-kbi.row(bti2)
+kbi.row(bti1, bti2)
 
 
 @dp.message_handler(text="Рассчитать")
