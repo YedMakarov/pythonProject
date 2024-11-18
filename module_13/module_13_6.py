@@ -80,7 +80,6 @@ async def set_weight(message, state):
 async def send_calories(message, state):
     await state.update_data(msg_weight=message.text)
     data = await state.get_data()
-    print(f"data - {data}")
 
     calories = (10 * int(data['msg_weight']) + 6.25 * int(data['msg_growth'])
                 - 5 * int(data['msg_age']) + 5)
