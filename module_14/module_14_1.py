@@ -26,16 +26,14 @@ for i in range(1, 11):
                    (f"User{i}", f"example{i}@gmail.com", f"{i * 10}", "1000"))
 
 # Чтение всей таблицы
-for i in range(1, 11):
-    cursor.execute("SELECT * FROM Users")
+cursor.execute("SELECT * FROM Users")
 results = cursor.fetchall()
 for row in results:
     print(row)
 print()  # Пустая строка
 
 # Чтение выборочных полей
-for i in range(1, 11):
-    cursor.execute("SELECT username, balance FROM Users")
+cursor.execute("SELECT username, balance FROM Users")
 results = cursor.fetchall()
 for row in results:
     print(row)
@@ -47,8 +45,7 @@ print()  # Пустая строка
 #         cursor.execute("UPDATE Users SET balance = ? WHERE username = ?", (500, f"User{i}"))
 cursor.execute('UPDATE Users SET balance = 500 WHERE id % 2 = 1')
 
-for i in range(1, 11):
-    cursor.execute("SELECT username, balance FROM Users")
+cursor.execute("SELECT username, balance FROM Users")
 results = cursor.fetchall()
 for row in results:
     print(row)
@@ -59,16 +56,15 @@ print()  # Пустая строка
 #     cursor.execute("DELETE FROM Users WHERE username = ?", (f"User{i}",))
 cursor.execute('DELETE FROM Users WHERE id % 3 = 1')
 
-for i in range(1, 11):
-    cursor.execute("SELECT * FROM Users")
+cursor.execute("SELECT * FROM Users")
 results = cursor.fetchall()
 for row in results:
     print(row)
 print()  # Пустая строка
 
 # Вывод строк из базы с фильтрацией по возрасту "age != 60"
-for i in range(1, 11):
-    cursor.execute("SELECT username, email, age, balance FROM Users WHERE age != ?", ("60",))
+cursor.execute("SELECT username, email, age, balance FROM Users WHERE age != ?", ("60",))
+
 results = cursor.fetchall()
 for row in results:
     print(row)
