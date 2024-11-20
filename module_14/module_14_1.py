@@ -55,9 +55,9 @@ for row in results:
 print()  # Пустая строка
 
 # Удаление каждой 3-й записи начиная с 1-й и вывод получившейся таблицы
-for i in range(1, 11, 3):
-    cursor.execute("DELETE FROM Users WHERE username = ?", (f"User{i}",))
-# cursor.execute('DELETE FROM Users WHERE id % 3 = 1')
+# for i in range(1, 11, 3):
+#     cursor.execute("DELETE FROM Users WHERE username = ?", (f"User{i}",))
+cursor.execute('DELETE FROM Users WHERE id % 3 = 1')
 
 for i in range(1, 11):
     cursor.execute("SELECT * FROM Users")
