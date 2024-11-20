@@ -41,10 +41,11 @@ for row in results:
     print(row)
 print()  # Пустая строка
 
-# Изменение balance и вывод получившейся таблицы
-for i in range(1, 11):
-    if i % 2 != 0:
-        cursor.execute("UPDATE Users SET balance = ? WHERE username = ?", (500, f"User{i}"))
+# Изменение balance у каждой 2-й записи начиная с 1-й и вывод получившейся таблицы
+# for i in range(1, 11):
+#     if i % 2 != 0:
+#         cursor.execute("UPDATE Users SET balance = ? WHERE username = ?", (500, f"User{i}"))
+cursor.execute('UPDATE Users SET balance = 500 WHERE id % 2 = 1')
 
 for i in range(1, 11):
     cursor.execute("SELECT username, balance FROM Users")
@@ -53,15 +54,14 @@ for row in results:
     print(row)
 print()  # Пустая строка
 
-# Удаление строк из базы и вывод получившейся таблицы
+# Удаление каждой 3-й записи начиная с 1-й и вывод получившейся таблицы
 for i in range(1, 11, 3):
-    if i % 3 != 0:
-        cursor.execute("DELETE FROM Users WHERE username = ?", (f"User{i}",))
+    cursor.execute("DELETE FROM Users WHERE username = ?", (f"User{i}",))
+# cursor.execute('DELETE FROM Users WHERE id % 3 = 1')
 
 for i in range(1, 11):
     cursor.execute("SELECT * FROM Users")
 results = cursor.fetchall()
-# print(users)
 for row in results:
     print(row)
 print()  # Пустая строка
