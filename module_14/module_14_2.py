@@ -1,4 +1,4 @@
-# Задача "Средний баланс пользователя".
+# Задача "Первые пользователи".
 
 
 import sqlite3
@@ -73,6 +73,36 @@ print()  # Пустая строка
 # Вывод в консоль согласно задаче
 for row in results:
     print(f'Имя: {row[0]} | Почта: {row[1]} | Возраст: {row[2]} | Баланс: {row[3]}')
+print()  # Пустая строка
+
+################################################################################
+# Код для задачи "Средний баланс пользователя"
+################################################################################
+# Удаление записи  с id6 и вывод получившейся таблицы
+cursor.execute('DELETE FROM Users WHERE id = 6')
+
+cursor.execute("SELECT * FROM Users")
+results = cursor.fetchall()
+for row in results:
+    print(row)
+print()  # Пустая строка
+
+# Подсчёт общего количества записей.
+cursor.execute('SELECT COUNT(*) FROM Users')
+
+total_users = cursor.fetchone()[0]
+print(f"Количество записей в базе данных: {total_users}")
+print()  # Пустая строка
+
+# Подсчёт суммы всех балансов.
+cursor.execute('SELECT SUM(balance) FROM Users')
+
+all_balances = cursor.fetchone()[0]
+print(f"Сумма всех балансов: {all_balances}")
+print()  # Пустая строка
+
+avg_balance = (all_balances / total_users)
+print(f"Средний баланс всех пользователей: {avg_balance}")
 
 connection.commit()
 connection.close()
