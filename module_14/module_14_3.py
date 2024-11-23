@@ -1,4 +1,4 @@
-# Задача "Ещё больше выбора".
+# Задача "Доработка бота".
 
 
 from aiogram import Bot, Dispatcher, executor, types
