@@ -129,8 +129,3 @@ async def back(call):
 
 if __name__ == "__main__":
     executor.start_polling(dp, skip_updates=True)
-
-"""
-Упрощенный вариант формулы Миффлина-Сан Жеора:
-для мужчин: 10 х вес (кг) + 6,25 x рост (см) – 5 х возраст (г) + 5;
-"""
