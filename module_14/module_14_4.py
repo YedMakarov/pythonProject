@@ -1,6 +1,5 @@
 # Задача "Продуктовая база".
 
-# import logging
 
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
@@ -8,10 +7,8 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.dispatcher import FSMContext
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-
 # import asyncio
 
-# logging.basicConfig(level=logging.INFO)
 
 api = "5217972794:AAGBjukG7mwtgfzV5I94Vwiz5eBd70TLJFg"
 bot = Bot(token=api)
