@@ -36,4 +36,3 @@ def get_all_products():
     results = cursor.fetchall()
 
     return results
-
