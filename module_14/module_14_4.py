@@ -4,11 +4,21 @@
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher.filters.state import State, StatesGroup
-from aiogram.dispatcher import FSMContext
+# from aiogram.dispatcher import FSMContext
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+
 # import asyncio
 
+import logging
+
+from crud_functions import initiate_db, get_all_products
+
+logging.basicConfig(level=logging.INFO)
+
+# Инициализация и заполнение базы данных
+initiate_db()
+products = get_all_products()
 
 api = "5217972794:AAGBjukG7mwtgfzV5I94Vwiz5eBd70TLJFg"
 bot = Bot(token=api)
@@ -52,13 +62,25 @@ async def main_menu(message):
 @dp.message_handler(text="Купить")
 async def get_buying_list(message):
     with open("files/vitamin_1.png", "rb") as img:
-        await message.answer_photo(img, "Название: Product1 | Описание 1 | Цена: 100 ")
+        # await message.answer_photo(img, "Название: Product1 | Описание 1 | Цена: 100 ")
+        await message.answer_photo(img, f'Название: {products[0][1]} | Описание: {products[0][2]} | '
+                                        f'Цена: {products[0][3]}')
+
     with open("files/vitamin_2.png", "rb") as img:
-        await message.answer_photo(img, "Название: Product2 | Описание 2 | Цена: 200 ")
+        # await message.answer_photo(img, "Название: Product2 | Описание 2 | Цена: 200 ")
+        await message.answer_photo(img, f'Название: {products[1][1]} | Описание: {products[1][2]} | '
+                                        f'Цена: {products[1][3]}')
+
     with open("files/vitamin_3.png", "rb") as img:
-        await message.answer_photo(img, "Название: Product3 | Описание 3 | Цена: 300 ")
+        # await message.answer_photo(img, "Название: Product3 | Описание 3 | Цена: 300 ")
+        await message.answer_photo(img, f'Название: {products[2][1]} | Описание: {products[2][2]} | '
+                                        f'Цена: {products[2][3]}')
+
     with open("files/vitamin_4.png", "rb") as img:
-        await message.answer_photo(img, "Название: Product4 | Описание 4 | Цена: 400 ")
+        # await message.answer_photo(img, "Название: Product4 | Описание 4 | Цена: 400 ")
+        await message.answer_photo(img, f'Название: {products[3][1]} | Описание: {products[3][2]} | '
+                                        f'Цена: {products[3][3]}')
+
     await message.answer("Выберите продукт для покупки:", reply_markup=kbi2)
 
 
@@ -73,12 +95,6 @@ async def set_age(call):
     await call.message.answer("Введите свой возраст:")
     await UserState.age.set()
     await call.answer()
-
-
-# @dp.message_handler(text="Рассчитать")
-# async def set_age(message):
-#     await message.answer("Введите свой возраст:")
-#     await UserState.age.set()
 
 
 @dp.message_handler(state=UserState.age)
