@@ -12,7 +12,7 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 import logging
 
-from crud_functions import initiate_db, get_all_products
+from crud_functions_14_4 import initiate_db, get_all_products
 
 logging.basicConfig(level=logging.INFO)
 
@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.INFO)
 initiate_db()
 products = get_all_products()
 
-api = ""
+api = "5217972794:AAGBjukG7mwtgfzV5I94Vwiz5eBd70TLJFg"
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
