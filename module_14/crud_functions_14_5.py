@@ -22,7 +22,7 @@ def initiate_db():
     username TEXT NOT NULL,
     email TEXT  NOT NULL,
     age INTEGER NOT NULL,
-    balance INTEGER NOT NULL DEFAULT 1000
+    balance INTEGER DEFAULT 1000
     );
     ''')
 
@@ -50,14 +50,13 @@ def get_all_products():
     return results
 
 
-
 # Новая функция
 def add_user(username: str, email: str, age: int):
     connection = sqlite3.connect("products_14_5.db")
     cursor = connection.cursor()
 
     cursor.execute(" INSERT INTO Users (username, email, age) VALUES (?,?,?)",
-                   ("Продукт 1", "Описание 1", "100"))
+                   (username, email, age))
 
     connection.commit()
     connection.close()
@@ -68,4 +67,11 @@ def is_included(username: str):
     connection = sqlite3.connect("products_14_5.db")
     cursor = connection.cursor()
 
+    cursor.execute("SELECT username FROM Users WHERE username = ?", (username,))
+    results = cursor.fetchall()
     connection.close()
+
+    if not results:
+        return False
+    else:
+        return True
