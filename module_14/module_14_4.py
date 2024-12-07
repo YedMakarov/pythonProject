@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.INFO)
 initiate_db()
 products = get_all_products()
 
-api = "5217972794:AAGBjukG7mwtgfzV5I94Vwiz5eBd70TLJFg"
+api = ""
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
