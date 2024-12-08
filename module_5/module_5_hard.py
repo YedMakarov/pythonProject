@@ -50,6 +50,11 @@ class UrTube:
                 print(f"Видео с названием '{video.title}' уже существует.")
 
     def get_videos(self, keyword):
+        # list_video = []
+        # for video in self.videos:
+        #     if keyword.lower() in video.title.lower():
+        #         list_video.append(video.title)
+        # return list_video
         return [video.title for video in self.videos if keyword.lower() in video.title.lower()]
 
     def watch_video(self, title):
