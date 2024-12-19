@@ -33,3 +33,4 @@ async def read_user_page2(user_name: str, age: int):
     return {f"Информация о пользователе. Имя: {user_name}, Возраст: {age}"}
 
 # C:\Users\Yed\PycharmProjects\pythonProject\module_16> python -m uvicorn module_16_1:app
+# uvicorn main:app --reload
