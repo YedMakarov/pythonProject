@@ -23,7 +23,7 @@ async def read_admin_page() -> str:
 
 # функция-обработчик импровизированного GET-запроса пользователя вместе с методом-декоратором app.get
 @app.get("/user/{user_id}")
-async def read_user_page(user_id: int) -> str:
+async def read_user_pages(user_id: int) -> str:
     return f"Вы вошли как пользователь № {user_id}"
 
 
