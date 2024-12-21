@@ -37,7 +37,6 @@ def add_user(user_: User, username: str, age: int) -> str:
 @app.put("/user/{user_id}/{username}/{age}")
 async def update_user(user_: User, user_id: int, username: str, age: int) -> str:
     try:
-        user_.id = user_id
         users[user_id].username = user_.username
         users[user_id].age = user_.age
         return f"User with ID update name to {user_.username} and age to {user_.age} year(s)."
