@@ -29,7 +29,7 @@ async def read_user_pages(user_id: int) -> str:
 
 # функция-обработчик импровизированного GET-запроса пользователя и его возраста вместе с методом-декоратором app.get
 @app.get("/user")
-async def read_users_page(username: str, age: int) -> str:
+async def read_users_pages(username: str, age: int) -> str:
     return f"Информация о пользователе. Имя: {username}, Возраст: {age}"
 
 # C:\Users\Yed\PycharmProjects\pythonProject\module_16> python -m uvicorn module_16_1:app
