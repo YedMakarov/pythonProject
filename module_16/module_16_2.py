@@ -27,7 +27,7 @@ async def read_user_pages(user_id: int = Path(ge=1, le=100, description="Enter U
 
 # функция-обработчик импровизированного GET-запроса пользователя и его возраста вместе с валидацией входных данных.
 @app.get("/user{username}/{age}")
-async def read_users_pages(username: str = Path(min_length=5, max_length=20, description="Enter username"),
+async def read_users_pages(username: Annotated[str, Path(min_length=5, max_length=20, description="Enter username")],
                            age: int = Path(ge=18, le=120, description="Enter age'")) -> str:
     return f"Информация о пользователе. Имя: {username}, Возраст: {age}"
 
