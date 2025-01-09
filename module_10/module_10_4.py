@@ -6,12 +6,6 @@ from threading import Thread
 from queue import Queue
 
 
-# class Table:
-#     def __init__(self, number: int):
-#         self.table = number
-#         self.guest: Guest | None = None  # Применена аннотация типа данных
-
-
 class Guest(Thread):
     def __init__(self, name: str):
         super().__init__()
@@ -22,11 +16,12 @@ class Guest(Thread):
         eating_time = randint(3, 10)
         sleep(eating_time)
 
+
 class Table:
     def __init__(self, number: int):
         self.number = number
-        self.guest: Guest | None = None  # Применена аннотация типа данных
-
+        # self.guest: Guest | None = None  # Применена аннотация типа данных (python 3.12)
+        self.guest = None
 
 class Cafe:
 
